@@ -1,3 +1,1 @@
-#!/bin/bash
-ls -p -tu | tr '\n' ',' | sed 's/,$/\n/'
-
+ls -1p -u -t | paste -sd, -

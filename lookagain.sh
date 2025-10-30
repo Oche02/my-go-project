@@ -1,4 +1,3 @@
 #!/bin/bash
+find . -type f -name "*.sh" | rev | cut -d '/' -f1 | cut -d '.' -f2- | rev | sort -r
 
-# Find all .sh files, get basename without extension, sort descending
-find . -type f -name "*.sh" -exec basename {} .sh \; | sort -r
