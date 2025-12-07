@@ -1,0 +1,32 @@
+
+package main
+
+import "fmt"
+
+func DealAPackOfCards(deck []int) {
+    if len(deck)%4 != 0 {
+        fmt.Println("The deck cannot be evenly divided among 4 players.")
+        return
+    }
+
+    // Prepare hands
+    players := make([][]int, 4)
+    for i := range players {
+        players[i] = []int{}
+    }
+
+    // Deal cards round-robin
+    for i, card := range deck {
+        players[i%4] = append(players[i%4], card)
+    }
+
+    // Print each player on a separate line
+    for i, hand := range players {
+        fmt.Printf("Player %d: %v\n", i+1, hand)
+    }
+}
+
+func main() {
+    deck := []int{1,2,3,4,5,6,7,8,9,10,11,12}
+    DealAPackOfCards(deck)
+}
